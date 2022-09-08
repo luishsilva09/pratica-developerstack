@@ -9,3 +9,17 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Questions {
+  id Int @id @default(autoincrement())
+  askedBy String
+  question String
+  answers Answers[] 
+}
+model Answers {
+  id Int @id @default(autoincrement())
+  answeredBy String
+  answer String
+  quest Questions @relation(fields: [questionId], references: [id])
+  questionId Int
+}

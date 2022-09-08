@@ -15,11 +15,7 @@ questionRouter.get('/questions', get);
 
 questionRouter.get('/questions/:id', getById);
 
-questionRouter.post(
-  '/questions',
-  validateSchemaMiddleware(questionSchema),
-  createQuestion
-);
+questionRouter.post('/questions',validateSchemaMiddleware(questionSchema),createQuestion);
 
 questionRouter.post(
   '/questions/:id/answers',
